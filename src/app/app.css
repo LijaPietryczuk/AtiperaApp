@@ -1,0 +1,5 @@
+body {
+  background-image: url('../assets/periodic_elements_16_9.png');
+  background-repeat: repeat;
+  overflow: hidden;
+}

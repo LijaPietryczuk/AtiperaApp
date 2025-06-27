@@ -1,0 +1,91 @@
+$font-size: 20px;
+$frame-color: #ffffff;
+$size: 2.8em;
+$open-width: 24em;
+$open-padding: 0.5em 2.2em 0.5em 0.6em;
+$frame-thickness: 0.2em;
+$handle-height: 2em;
+$open-trans-time: 800ms;
+$close-trans-time: 150ms;
+
+
+.search-box {
+  position: absolute;
+  font-size: $font-size;
+  border: solid $frame-thickness $frame-color;
+
+  display: inline-block;
+  border-radius: $size;
+  margin-left: 56%;
+  margin-bottom: 0.3em;
+
+  input[type="text"] {
+    font-weight: bold;
+    font-size: 12px;
+    width: $size;
+    color: #fff;
+    opacity: 1;
+    height: $size;
+    padding: $open-padding;
+    border: none;
+    box-sizing: border-box;
+    border-radius: $size;
+    background: transparent;
+    transition: width $open-trans-time cubic-bezier(0.68, -0.55, 0.27, 1.55) $close-trans-time;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      width: $open-width;
+      transition: width $open-trans-time cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+      + button[type="reset"] {
+        transform: rotate(-45deg) translateY(0);
+        transition: transform $close-trans-time ease-out $open-trans-time;
+      }
+
+      + button[type="reset"]::after {
+        opacity: 1;
+        transition:
+          top $close-trans-time ease-out ($open-trans-time + $close-trans-time),
+          right $close-trans-time ease-out ($open-trans-time + $close-trans-time),
+          opacity $close-trans-time ease ($open-trans-time + $close-trans-time);
+      }
+    }
+  }
+
+  button[type="reset"] {
+    background-color: transparent;
+    width: $handle-height;
+    height: $handle-height;
+    border: 0;
+    padding: 12px 0;
+    outline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: ($size / 2) - ($handle-height / 2);
+    right: ($size / 2) - ($handle-height / 2);
+    transform: rotate(-45deg) translateY($size - $frame-thickness);
+    transition: transform $close-trans-time ease-out $close-trans-time;
+
+    &::before,
+    &::after {
+      content: "";
+      background-color: $frame-color;
+      width: $frame-thickness;
+      height: $handle-height;
+      position: absolute;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+      opacity: 0;
+      transition: transform $close-trans-time ease-out, opacity $close-trans-time ease-out;
+    }
+  }
+}

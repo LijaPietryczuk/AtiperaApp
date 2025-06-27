@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {EditTableService} from './edit-table-service';
+
 
 @Component({
   selector: 'app-edit-table',
@@ -7,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './edit-table.css'
 })
 export class EditTable {
-
+  private EditTableService = inject(EditTableService);
 }

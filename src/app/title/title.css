@@ -1,0 +1,44 @@
+.title-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.tile {
+  width: 60px;
+  height: 80px;
+  background-color: #c8c8c8;
+  color: #303030;
+  border: 1px solid #222;
+  border-radius: 6px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.tile:hover {
+  color: #fff;
+  background-color: #1a1a1a;
+}
+
+.atomic-number {
+  font-size: 14px;
+}
+
+.symbol {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.name {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
