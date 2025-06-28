@@ -1,4 +1,4 @@
-import {Injectable, signal} from '@angular/core';
+import {computed, Injectable, signal} from '@angular/core';
 import {signalStore, withState} from '@ngrx/signals';
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -23,12 +23,29 @@ export interface PeriodicElement {
 
 export const TableStore = signalStore(
   { providedIn: 'root' },
-  withState(() => ({
-    elements: signal<PeriodicElement[]>(ELEMENT_DATA),
-    filterText: signal(''),
-    displayedColumns: signal(['position', 'name', 'weight', 'symbol', 'edit'])
-  }))
+  withState(() => {
+    const elements = signal<PeriodicElement[]>(ELEMENT_DATA);
+    const filterText = signal('');
+    const displayedColumns = signal(['position', 'name', 'weight', 'symbol', 'edit']);
+
+    const filteredElements = computed(() => {
+      const filter = filterText().toLowerCase();
+      return elements().filter(el =>
+        Object.values(el).some(value =>
+          String(value).toLowerCase().includes(filter)
+        )
+      );
+    });
+
+    return {
+      elements,
+      filterText,
+      displayedColumns,
+      filteredElements,
+    };
+  })
 );
+
 
 @Injectable({ providedIn: 'root' })
 export class TableService extends TableStore {}

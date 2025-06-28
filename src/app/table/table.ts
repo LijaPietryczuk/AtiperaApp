@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, effect, inject} from '@angular/core';
 import {TableService} from './table-service';
 import {
   MatCell, MatCellDef,
@@ -42,14 +42,20 @@ import {FormsModule} from '@angular/forms';
 })
 
 export class Table {
-  private store = inject(TableService);
+  public store = inject(TableService);
   searchText: string = '';
+
   get displayColumns() {
     return this.store.displayedColumns()();
   }
 
   get displayElements() {
-    return this.store.elements()();
+    return this.store.filteredElements()();
+  }
+
+  get filterText() {
+    return this.store.filterText();
   }
 }
+
 
