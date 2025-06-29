@@ -1,4 +1,4 @@
-import {computed, Injectable, signal} from '@angular/core';
+import {effect, Injectable, signal} from '@angular/core';
 import {signalStore, withState} from '@ngrx/signals';
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -27,14 +27,17 @@ export const TableStore = signalStore(
     const elements = signal<PeriodicElement[]>(ELEMENT_DATA);
     const filterText = signal('');
     const displayedColumns = signal(['position', 'name', 'weight', 'symbol', 'edit']);
+    const filteredElements = signal<PeriodicElement[]>(ELEMENT_DATA);
 
-    const filteredElements = computed(() => {
+    effect(() => {
       const filter = filterText().toLowerCase();
-      return elements().filter(el =>
-        Object.values(el).some(value =>
-          String(value).toLowerCase().includes(filter)
-        )
-      );
+      const time = setTimeout(() => {
+        const filtered = elements().filter(element =>
+          Object.values(element).some(value => String(value).toLowerCase().includes(filter))
+        );
+        filteredElements.set(filtered);
+      }, 2000);
+      return () => clearTimeout(time);
     });
 
     return {

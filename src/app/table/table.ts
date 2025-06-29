@@ -1,4 +1,4 @@
-import {Component, effect, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {TableService} from './table-service';
 import {
   MatCell, MatCellDef,
@@ -10,8 +10,7 @@ import {
   MatTable, MatTableModule
 } from '@angular/material/table';
 import {MatButton, MatButtonModule} from '@angular/material/button';
-import {MatFormField, MatInputModule, MatLabel} from '@angular/material/input';
-import {JsonPipe} from '@angular/common';
+import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 
