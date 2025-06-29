@@ -6,41 +6,41 @@
       <!-- Position Column -->
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef> Number </th>
-        <td mat-cell *matCellDef="let element">
-          <input matInput [(ngModel)]="item.position" name="position" type="number" />
+        <td mat-cell>
+          <input matInput [(ngModel)]="position" name="position" type="number" />
         </td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element">
-          <input matInput [(ngModel)]="item.name" name="name" type="text" />
+        <td mat-cell>
+          <input matInput [(ngModel)]="name" name="name" type="text" />
         </td>
       </ng-container>
 
       <!-- Weight Column -->
       <ng-container matColumnDef="weight">
         <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element">
-          <input matInput [(ngModel)]="item.weight" name="weight" type="number" />
+        <td mat-cell>
+          <input matInput [(ngModel)]="weight" name="weight" type="number" />
         </td>
       </ng-container>
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="symbol">
         <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element">
-          <input matInput [(ngModel)]="item.symbol" name="symbol" type="text" />
+        <td mat-cell>
+          <input matInput [(ngModel)]="symbol" name="symbol" type="text" />
         </td>
       </ng-container>
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-button color="primary" (click)="onSave()">Zapisz</button>
-          <button mat-button color="warn" (click)="onCancel()">Anuluj</button>
+        <td mat-cell>
+          <button class="btn" mat-button color="primary" (click)="onSave()">Save</button>
+          <button class="btn" mat-button color="warn" (click)="onCancel()">Cancel</button>
         </td>
       </ng-container>
 

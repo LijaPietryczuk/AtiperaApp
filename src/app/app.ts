@@ -1,35 +1,44 @@
 import { Component } from '@angular/core';
-import {Table} from './table/table';
-import {Title} from './title/title';
-import {PeriodicElement} from './table/table-service';
-import {EditTable} from './edit-table/edit-table';
-import {NgIf} from '@angular/common';
+import { Table } from './table/table';
+import { Title } from './title/title';
+import { PeriodicElement } from './table/table-service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditTable } from './edit-table/edit-table';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [Table, Title, EditTable, NgIf],
+  standalone: true,
+  imports: [Table, Title, NgClass],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  isEditing = false;
-  selectedItem: PeriodicElement | null = null;
+  isDialogOpen = false;
+
+  constructor(private dialog: MatDialog) {}
 
   startEdit(item: PeriodicElement) {
-    console.log("edytuje")
-    this.selectedItem = item;
-    this.isEditing = true;
+    this.isDialogOpen = true;
+
+    this.dialog.open(EditTable, {
+      data: item,
+      panelClass: 'full-screen-dialog'
+    }).afterClosed().subscribe(result => {
+      this.isDialogOpen = false;
+      if (result) {
+        this.saveEdit(result);
+      } else {
+        this.cancelEdit();
+      }
+    });
+  }
+
+  saveEdit(updated: PeriodicElement) {
+    console.log('Zapisano:', updated);
   }
 
   cancelEdit() {
-
-    this.isEditing = false;
-    this.selectedItem = null;
+    console.log('Anulowano edycję');
   }
-
-  saveEdit($event: PeriodicElement) {
-    console.log("zapisuje");
-    this.cancelEdit();
-  }
-
 }

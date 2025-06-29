@@ -2,7 +2,7 @@
 <div id="table-content">
   <div id="search-input-div">
     <form class="search-box">
-      <input matInput type="text" placeholder="wyszukaj" [(ngModel)]="searchText" (ngModelChange)="filterText.set($event)" name="search"/>
+      <input matInput type="text" placeholder="search" [(ngModel)]="searchText" (ngModelChange)="filterText.set($event)" name="search"/>
       <button class="reset-button" type="button" (click)="resetSearch()"></button>
     </form>
   </div>
@@ -37,13 +37,13 @@
       <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-button color="primary" (click)="onEdit(element)">Edit</button>
+          <button class="btn" mat-button color="primary" (click)="onEdit(element)">Edit</button>
         </td>
       </ng-container>
 
       <!-- Header Column -->
-      <tr mat-header-row *matHeaderRowDef="displayColumns" class="headerRow"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayColumns" class="row"></tr>
+      <tr class="headerRow" mat-header-row *matHeaderRowDef="displayColumns"></tr>
+      <tr class="row" mat-row *matRowDef="let row; columns: displayColumns"></tr>
     </table>
   </div>
 </div>

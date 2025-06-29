@@ -1,7 +1,6 @@
 <body>
-<app-title>
-</app-title>
-<app-table *ngIf="!isEditing" (edit)="startEdit($event)"></app-table>
-<app-edit-table *ngIf="isEditing" [item]="selectedItem!" (cancel)="cancelEdit()" (save)="saveEdit($event)">
-</app-edit-table>
+<app-title></app-title>
+<div id="table-container" [ngClass]="{ 'blur': isDialogOpen }">
+  <app-table (edit)="startEdit($event)"></app-table>
+</div>
 </body>

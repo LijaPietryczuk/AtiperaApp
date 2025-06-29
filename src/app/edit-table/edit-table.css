@@ -3,17 +3,11 @@
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0);
-  width: 60%;
   justify-content: center;
   align-items: center;
-  margin-left: 20%;
-  max-height: calc(40em);
+  max-height: 40em;
   overflow-y: auto;
   display: block;
-}
-
-#table-content {
-  padding-top: 5%;
 }
 
 mat-table {
@@ -50,17 +44,64 @@ td {
   transition: background-color 0.2s;
 }
 
-.row:hover {
-  background-color: #f3f4f6;
+
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-input[matInput] {
+::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 0 100px 100px 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0 100px 100px 0;
+}
+
+.btn {
+  position: relative;
+  font-size: 0.75rem;
+  width: 8em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2.5em;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 6em;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: black;
+  background-color: white;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
   width: 100%;
-  font-size: 0.875rem;
-  padding: 0.25rem 0.5rem;
-  box-sizing: border-box;
-  background-color: transparent;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  color: #374151;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }

@@ -4,3 +4,21 @@ body {
   overflow: hidden;
 }
 
+.blur {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+::ng-deep .mat-mdc-dialog-surface.mdc-dialog__surface {
+  width: 60em !important;
+  max-height: 40em;
+  max-width: 100vw !important;
+  margin: 0 0 0 -35% !important;
+  padding: 0 !important;
+  border-radius: 0.5rem !important;
+}
+
+::ng-deep .mdc-button.mat-mdc-button-base.btn.mat-mdc-button.mat-warn {
+  margin-top: 1em;
+}

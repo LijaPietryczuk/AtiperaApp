@@ -1,59 +1,99 @@
-# AtiperaApp
+# AtiperaApp – Angular 20 + Material + SignalStore
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+Aplikacja webowa stworzona w Angularze 20 z wykorzystaniem biblioteki Angular Material oraz SignalStore.
 
-## Development server
+---
 
-To start a local development server, run:
+## Opis funkcjonalności
 
-```bash
-ng serve
+- Wyświetla tabelę pierwiastków z kolumnami:
+  - `Number`
+  - `Name`
+  - `Weight`
+  - `Symbol`
+- Dane są symulowane lokalnie przy starcie aplikacji.
+- Możliwość edycji każdego wiersza (za pomocą popupu z inputami).
+- Zmiany są zapisywane po kliknięciu przycisku `Zapisz` w popupie.
+- Wiersz tabeli aktualizuje się natychmiast po zatwierdzeniu zmian.
+- Filtrowanie danych za pomocą jednego pola input (działa po 2 sekundach bez wpisywania).
+  - Filtruje po wszystkich polach rekordu.
+
+---
+
+## Dane początkowe (symulowane)
+
+```ts
+const ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+];
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Technologie
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Angular 20  
+- Angular Material  
+- SignalStore  
+- TypeScript  
+- HTML/CSS  
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Uruchamianie aplikacji
 
-```bash
-ng generate --help
-```
+### Bez Dockera (lokalnie)
 
-## Building
+1. Zainstaluj zależności:
 
-To build the project run:
+   ```bash
+   npm install --legacy-peer-deps
+   ```
 
-```bash
-ng build
-```
+2. Uruchom aplikację:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+   ```bash
+   ng serve
+   ```
 
-## Running unit tests
+3. Otwórz przeglądarkę i przejdź do:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+   ```
+   http://localhost:4200
+   ```
 
-```bash
-ng test
-```
+### Z użyciem Dockera
 
-## Running end-to-end tests
+1. Zbuduj obraz Dockera:
 
-For end-to-end (e2e) testing, run:
+   ```bash
+   docker build -t atipera-app .
+   ```
 
-```bash
-ng e2e
-```
+2. Uruchom kontener:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+   ```bash
+   docker run -p 4200:4200 atipera-app
+   ```
 
-## Additional Resources
+3. Aplikacja będzie dostępna pod adresem:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   ```
+   http://localhost:4200
+   ```
+
+---
+
+## Uwagi
+
+- Aplikacja nie zawiera testów jednostkowych (zgodnie z założeniem).
+- Stylizacja komponentów oparta na Angular Material i własnych klasach CSS.
