@@ -13,7 +13,7 @@ Aplikacja webowa stworzona w Angularze 20 z wykorzystaniem biblioteki Angular Ma
   - `Symbol`
 - Dane są symulowane lokalnie przy starcie aplikacji.
 - Możliwość edycji każdego wiersza (za pomocą popupu z inputami).
-- Zmiany są zapisywane po kliknięciu przycisku `Zapisz` w popupie.
+- Zmiany są zapisywane po kliknięciu przycisku `Save` w popupie.
 - Wiersz tabeli aktualizuje się natychmiast po zatwierdzeniu zmian.
 - Filtrowanie danych za pomocą jednego pola input (działa po 2 sekundach bez wpisywania).
   - Filtruje po wszystkich polach rekordu.
