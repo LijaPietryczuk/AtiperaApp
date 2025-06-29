@@ -1,3 +1,4 @@
+@use 'sass:math';
 $font-size: 15px;
 $frame-color: #9f9f9f;
 $size: 2em;
@@ -8,12 +9,10 @@ $handle-height: 1.5em;
 $open-trans-time: 800ms;
 $close-trans-time: 150ms;
 
-
 .search-box {
   position: absolute;
   font-size: $font-size;
   border: solid $frame-thickness $frame-color;
-
   display: inline-block;
   border-radius: $size;
   margin-left: 40%;
@@ -43,12 +42,12 @@ $close-trans-time: 150ms;
       width: $open-width;
       transition: width $open-trans-time cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
-      + button[type="reset"] {
-        transform: rotate(-45deg) translateY(0);
+      + .reset-button {
+        transform: rotate(-45deg) translateY(-0.5em);
         transition: transform $close-trans-time ease-out $open-trans-time;
       }
 
-      + button[type="reset"]::after {
+      + .reset-button::after {
         opacity: 1;
         transition:
           top $close-trans-time ease-out ($open-trans-time + $close-trans-time),
@@ -58,7 +57,7 @@ $close-trans-time: 150ms;
     }
   }
 
-  button[type="reset"] {
+  .reset-button {
     background-color: transparent;
     width: $handle-height;
     height: $handle-height;
@@ -69,8 +68,8 @@ $close-trans-time: 150ms;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: ($size / 2) - ($handle-height / 2);
-    right: ($size / 2) - ($handle-height / 2);
+    top: math.div($size, 2) - math.div($handle-height, 2);
+    right: math.div($size, 2) - math.div($handle-height, 2);
     transform: rotate(-45deg) translateY($size - $frame-thickness);
     transition: transform $close-trans-time ease-out $close-trans-time;
 

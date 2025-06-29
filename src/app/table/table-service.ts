@@ -40,6 +40,7 @@ export const TableStore = signalStore(
       return () => clearTimeout(time);
     });
 
+
     return {
       elements,
       filterText,

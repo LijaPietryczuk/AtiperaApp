@@ -1,6 +1,7 @@
 <body>
 <app-title>
 </app-title>
-<app-table>
-</app-table>
+<app-table *ngIf="!isEditing" (edit)="startEdit($event)"></app-table>
+<app-edit-table *ngIf="isEditing" [item]="selectedItem!" (cancel)="cancelEdit()" (save)="saveEdit($event)">
+</app-edit-table>
 </body>
