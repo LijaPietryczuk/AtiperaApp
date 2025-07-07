@@ -1,4 +1,4 @@
-# AtiperaApp – Angular 20 + Material + SignalStore
+# Angular 20 + Material + SignalStore
 
 Aplikacja webowa stworzona w Angularze 20 z wykorzystaniem biblioteki Angular Material oraz SignalStore.
 
