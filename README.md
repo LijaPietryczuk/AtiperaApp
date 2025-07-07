@@ -1,26 +1,26 @@
-# Periodic table app
+# Periodic Table App
 
-Aplikacja webowa stworzona w Angularze 20 z wykorzystaniem biblioteki Angular Material oraz SignalStore.
+A web application built with Angular 20 using Angular Material and SignalStore.
 
 ---
 
-## Opis funkcjonalności
+## Features
 
-- Wyświetla tabelę pierwiastków z kolumnami:
+- Displays a periodic table with the following columns:
   - `Number`
   - `Name`
   - `Weight`
   - `Symbol`
-- Dane są symulowane lokalnie przy starcie aplikacji.
-- Możliwość edycji każdego wiersza (za pomocą popupu z inputami).
-- Zmiany są zapisywane po kliknięciu przycisku `Save` w popupie.
-- Wiersz tabeli aktualizuje się natychmiast po zatwierdzeniu zmian.
-- Filtrowanie danych za pomocą jednego pola input (działa po 2 sekundach bez wpisywania).
-  - Filtruje po wszystkich polach rekordu.
+- Data is simulated locally on app startup.
+- Allows editing of each row via a popup with input fields.
+- Changes are saved after clicking the `Save` button in the popup.
+- The table row updates immediately after saving.
+- Includes a single input field for filtering data (triggers 2 seconds after the user stops typing).
+  - Filters across all fields of the record.
 
 ---
 
-## Dane początkowe (symulowane)
+## Sample Data (Simulated)
 
 ```ts
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -35,57 +35,58 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];
+
 ```
 
 ---
 
-## Technologie
+## Technologies
 
-- Angular 20  
-- Angular Material  
-- SignalStore  
-- TypeScript  
-- HTML/CSS  
+- Angular 20
+- Angular Material
+- SignalStore
+- TypeScript
+- HTML/CSS
 
 ---
 
-## Uruchamianie aplikacji
+## Running the Application
 
-### Bez Dockera (lokalnie)
+### Without Docker (Locally)
 
-1. Zainstaluj zależności:
+1. Install dependencies:
 
    ```bash
    npm install --legacy-peer-deps
    ```
 
-2. Uruchom aplikację:
+2. Start the application:
 
    ```bash
    ng serve
    ```
 
-3. Otwórz przeglądarkę i przejdź do:
+3. Open your browser and navigate to:
 
    ```
    http://localhost:4200
    ```
 
-### Z użyciem Dockera
+### Using Docker
 
-1. Zbuduj obraz Dockera:
+1. Build the Docker image:
 
    ```bash
    docker build -t atipera-app .
    ```
 
-2. Uruchom kontener:
+2. Run the container:
 
    ```bash
    docker run -p 4200:4200 atipera-app
    ```
 
-3. Aplikacja będzie dostępna pod adresem:
+3. The application will be available at:
 
    ```
    http://localhost:4200
@@ -93,7 +94,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 ---
 
-## Uwagi
+## Notes
 
-- Aplikacja nie zawiera testów jednostkowych (zgodnie z założeniem).
-- Stylizacja komponentów oparta na Angular Material i własnych klasach CSS.
+- The application does not include unit tests (as per the original specification).
+- Component styling is based on Angular Material and custom CSS classes.
