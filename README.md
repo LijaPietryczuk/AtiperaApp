@@ -1,4 +1,4 @@
-# Angular 20 + Material + SignalStore
+# Periodic table app
 
 Aplikacja webowa stworzona w Angularze 20 z wykorzystaniem biblioteki Angular Material oraz SignalStore.
 
