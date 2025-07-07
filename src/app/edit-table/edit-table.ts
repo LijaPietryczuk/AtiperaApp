@@ -1,4 +1,4 @@
-import {Component, inject, Inject} from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PeriodicElement, TableService } from '../table/table-service';
 import { FormsModule } from '@angular/forms';
@@ -10,11 +10,16 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-edit-table',
   standalone: true,
-  imports: [FormsModule, MatTableModule, MatInputModule, MatButtonModule, CommonModule],
+  imports: [
+    FormsModule,
+    MatTableModule,
+    MatInputModule,
+    MatButtonModule,
+    CommonModule
+  ],
   templateUrl: './edit-table.html',
   styleUrl: './edit-table.css'
 })
-
 export class EditTable {
   public position: number;
   public name: string;
@@ -31,11 +36,7 @@ export class EditTable {
     this.symbol = item.symbol;
   }
 
-  public store = inject(TableService);
-
-  get displayColumns() {
-    return this.store.displayedColumns()().filter(col => col !== 'edit').concat('actions');
-  }
+  public displayColumns = ['position', 'name', 'weight', 'symbol', 'actions'];
 
   onCancel() {
     this.dialogRef.close(null);
@@ -49,4 +50,3 @@ export class EditTable {
     this.dialogRef.close(this.item);
   }
 }
-

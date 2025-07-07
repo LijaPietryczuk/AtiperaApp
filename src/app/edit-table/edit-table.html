@@ -1,53 +1,51 @@
-<body>
-<div id="table-content">
-  <div class="table">
-    <table mat-table [dataSource]="[item]">
+<h2>Edytuj element</h2>
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> Number </th>
-        <td mat-cell>
-          <input matInput [(ngModel)]="position" name="position" type="number" />
-        </td>
-      </ng-container>
+<div class="table">
+  <table mat-table [dataSource]="[item]" class="mat-elevation-z1">
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell>
-          <input matInput [(ngModel)]="name" name="name" type="text" />
-        </td>
-      </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Number </th>
+      <td mat-cell *matCellDef="let element">
+        <input matInput [(ngModel)]="position" name="position" type="number" />
+      </td>
+    </ng-container>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell>
-          <input matInput [(ngModel)]="weight" name="weight" type="number" />
-        </td>
-      </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element">
+        <input matInput [(ngModel)]="name" name="name" />
+      </td>
+    </ng-container>
 
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell>
-          <input matInput [(ngModel)]="symbol" name="symbol" type="text" />
-        </td>
-      </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Weight </th>
+      <td mat-cell *matCellDef="let element">
+        <input matInput [(ngModel)]="weight" name="weight" type="number" />
+      </td>
+    </ng-container>
 
-      <!-- Actions Column -->
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell>
-          <button class="btn" mat-button color="primary" (click)="onSave()">Save</button>
-          <button class="btn" mat-button color="warn" (click)="onCancel()">Cancel</button>
-        </td>
-      </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td mat-cell *matCellDef="let element">
+        <input matInput [(ngModel)]="symbol" name="symbol" />
+      </td>
+    </ng-container>
 
-      <!-- Header Column -->
-      <tr mat-header-row *matHeaderRowDef="displayColumns" class="headerRow"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayColumns" class="row"></tr>
-    </table>
-  </div>
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button (click)="onSave()">Save</button>
+        <button mat-button class="cancelButton" (click)="onCancel()">Cancel</button>
+      </td>
+    </ng-container>
+
+    <!-- Header & Row -->
+    <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+  </table>
 </div>
-</body>

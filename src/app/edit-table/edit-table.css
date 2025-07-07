@@ -59,6 +59,11 @@ td {
   border-radius: 0 100px 100px 0;
 }
 
+h2{
+  font-weight: normal;
+  margin-left: 2em;
+}
+
 .btn {
   position: relative;
   font-size: 0.75rem;
@@ -85,6 +90,11 @@ td {
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cancelButton{
+  margin-top: 0.20rem;
+  margin-left: 0.40rem;
 }
 
 .btn::after {
